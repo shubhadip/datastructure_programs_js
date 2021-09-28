@@ -24,3 +24,13 @@ var fib = memo(function(n){
 console.log(fib(11))
 
 
+
+// function memoizeOnce(fn){
+//   let result;
+//   return function(){
+//     if(result){
+//       return result;
+//     }
+//     result = fn.call(this,arguments);
+//   }
+// }

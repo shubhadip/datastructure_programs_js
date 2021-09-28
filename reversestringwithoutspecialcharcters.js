@@ -1,6 +1,7 @@
 
 let isLetter = (letter) =>{
     return letter.toLowerCase() != letter.toUpperCase()
+    // return letter.length === 1 && str.match(/[a-z]/i);
 }
 
 let reverseStringWithoutSpecial = (str) => {
@@ -25,4 +26,4 @@ let reverseStringWithoutSpecial = (str) => {
     console.log(str)
 }
 
-reverseStringWithoutSpecial('bv,tg$')
+reverseStringWithoutSpecial('bv,tg$1')

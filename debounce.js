@@ -1,5 +1,5 @@
 
-var debounce = function(func, time){
+var debounce = (func, time) => {
     let inDecounce
     return function(){
         let arg = arguments
