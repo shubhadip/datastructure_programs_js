@@ -312,39 +312,119 @@
 
 
 
-Array.prototype.myReduce = function(fn, intialValue){
-  const dataArray = this;
-  dataArray.forEach((item) => {
-    intialValue = intialValue != undefined ? fn(intialValue, item) : item;
-  })
-  return intialValue;
-};
+// Array.prototype.myReduce = function(fn, intialValue){
+//   const dataArray = this;
+//   dataArray.forEach((item) => {
+//     intialValue = intialValue != undefined ? fn(intialValue, item) : item;
+//   })
+//   return intialValue;
+// };
 
-console.log('reduce',[[1],[2],[3]].myReduce((a,b) => a.concat(b)),[])
+// console.log('reduce',[[1],[2],[3]].myReduce((a,b) => a.concat(b)),[])
 
-Array.prototype.myMap = function(fn, initialValue = []) {
-  console.log(this.valueOf());
-  const dataArray = this;
-  dataArray.forEach((item) => {
-    initialValue.push(fn(item));
-  })
-  return initialValue
+// Array.prototype.myMap = function(fn, initialValue = []) {
+//   console.log(this.valueOf());
+//   const dataArray = this;
+//   dataArray.forEach((item) => {
+//     initialValue.push(fn(item));
+//   })
+//   return initialValue
+// }
+
+// console.log('map',[1,2,3].myMap((a) => a*2))
+
+
+// const debounce =  (fn, time) => {
+//   let isTimeout;
+//   return function(){
+//     clearTimeout(isTimeout);
+//     isTimeout = setTimeout(()=>{
+//       fn.call(this,arguments);
+//     },time)
+//   }
+// };
+
+// debounce(()=>console.log('asd'), 1000)('asd')
+// debounce((d)=> () => console.log(d), 2000)('asd1')
+
+
+// var t = [1, 3, 2, 6, 1, 2]
+// k = 3;
+// let count =0 
+// t.forEach(element => {
+//   const offset = Math.abs(k-element);
+//   if(t.indexOf(offset) > -1){
+//     count++;
+//   }
+// });
+
+// console.log(count);
+
+
+
+Array.prototype.myReduce = function(fn, init) {
+  const values = this.valueOf();
+  values.forEach(element => {
+    init = init != undefined ? fn(init,element) : element;
+  });
+  init;
 }
 
-console.log('map',[1,2,3].myMap((a) => a*2))
 
+Array.prototype.myMap = function(fn, init = []) {
+  const values = this.valueOf();
+  values.forEach(element => {
+    init.push(fn(element));
+  });
+  init;
+}
 
-const debounce =  (fn, time) => {
-  let isTimeout;
-  return function(){
-    clearTimeout(isTimeout);
-    isTimeout = setTimeout(()=>{
-      fn.call(this,arguments);
-    },time)
+function fact(n){
+  if( n <= 2 ){
+    return 1
+  }else{
+    return fact(n-2) + fact(n-1);
   }
-};
+}
+console.log(fact(7));
 
-debounce(()=>console.log('asd'), 1000)('asd')
-debounce((d)=> () => console.log(d), 2000)('asd1')
+const t = "aaa"
+let ans = 0;
 
+let i = -1;
+let j = -1;
+const hash = {}
 
+while(true){
+  let f1 = false;
+  let f2 = false;
+
+  while(i < t.length-1){
+    f1 = true
+    i++;
+    hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : 1
+    if(hash[t[i]] === 2 ){
+      break;
+    }else{
+      const len = i-j;
+      if(len > ans){
+        ans = len
+      }
+    }
+  }
+
+  while(j < i){
+    f2 = true
+    j++;
+    hash[t[j]] = hash[t[j]] - 1;
+    if(hash[t[j]] == 1) {
+      break;
+    }
+  }
+
+  if(!f1 && !f2){
+    break;
+  }
+}
+
+console.log(ans);
