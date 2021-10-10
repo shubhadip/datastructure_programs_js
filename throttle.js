@@ -1,14 +1,14 @@
 const throttle = (func, time = 100) => {
   let timeout;
     
-  return () => {
-    const next = () => {
-      func.apply(this,args)
-      clearTimeout(timeout);
-    };
+  return (...args) => {
 
     if(!timeout) {
-      timeout = setTimeout(next ,time)
+      timeout = setTimeout(() => {
+        func(...args)
+        clearTimeout(timeout)
+      }
+      ,time)
     }
   }
   

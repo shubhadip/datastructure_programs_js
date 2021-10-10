@@ -1,0 +1,48 @@
+// let number = 0;
+// const increment = () => {
+//   number += 1;
+//   const message = `Incremented to ${number}`;
+//   return () => {
+//     console.log(message);
+//     console.log(`Number: ${number}`);
+//   }
+// }
+
+// const log = increment();
+// increment();
+// increment();
+// log();
+
+// let number = 0;
+// const increment = () => {
+//   number += 1;
+//   const message = `Incremented to ${number}`;
+//   return () => {
+//     console.log(message);
+//     console.log(`Number: ${number}`);
+//   }
+// }
+
+// const log = increment();
+// increment();
+// increment();
+// log();
+
+// class A {}, class B extends A {}
+// B.prototype
+// B.__proto__
+// Darshan Chauhan8:52 AM
+// const foo = new B();
+// foo.prototype
+// foo.__proto__
+
+// setTimeout(() => console.log(1), 0);
+// new Promise(function(resolve, reject) { 
+//     console.log(2); 
+// });
+// console.log(3);
+
+
+// // bubbling vs capturing 
+
+// // delegation

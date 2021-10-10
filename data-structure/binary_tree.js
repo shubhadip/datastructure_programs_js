@@ -55,6 +55,7 @@ var Bst  = function(){
         let current = this.root
         while(current.data != data){
             if(data < current.data){
+                console.log(current.data);
                 current = current.left
             }else{
                 current = current.right
@@ -69,7 +70,6 @@ var Bst  = function(){
 }
 
 this.remove = function(data){
-    
     var removeNode = function(node, data){
         if(node == null){
             return null

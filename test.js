@@ -362,69 +362,583 @@
 
 
 
-Array.prototype.myReduce = function(fn, init) {
-  const values = this.valueOf();
-  values.forEach(element => {
-    init = init != undefined ? fn(init,element) : element;
+// Array.prototype.myReduce = function(fn, init) {
+//   const values = this.valueOf();
+//   values.forEach(element => {
+//     init = init != undefined ? fn(init,element) : element;
+//   });
+//   init;
+// }
+
+
+// Array.prototype.myMap = function(fn, init = []) {
+//   const values = this.valueOf();
+//   values.forEach(element => {
+//     init.push(fn(element));
+//   });
+//   init;
+// }
+
+// function fact(n){
+//   if( n <= 2 ){
+//     return 1
+//   }else{
+//     return fact(n-2) + fact(n-1);
+//   }
+// }
+// console.log(fact(7));
+
+// const t = "aaa"
+// let ans = 0;
+
+// let i = -1;
+// let j = -1;
+// const hash = {}
+
+// while(true){
+//   let f1 = false;
+//   let f2 = false;
+
+//   while(i < t.length-1){
+//     f1 = true
+//     i++;
+//     hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : 1
+//     if(hash[t[i]] === 2 ){
+//       break;
+//     }else{
+//       const len = i-j;
+//       if(len > ans){
+//         ans = len
+//       }
+//     }
+//   }
+
+//   while(j < i){
+//     f2 = true
+//     j++;
+//     hash[t[j]] = hash[t[j]] - 1;
+//     if(hash[t[j]] == 1) {
+//       break;
+//     }
+//   }
+
+//   if(!f1 && !f2){
+//     break;
+//   }
+// }
+
+// console.log(ans);
+
+
+// const t= [1,2,4,5,6,8]
+// let psum = 15;
+
+// for(let i = 0 ; i < t.length-2 ; i++){
+//   for(let j = i+1 ; j < t.length-1 ; j++){
+//     for(let k = j+1 ; k < t.length ; k++){
+//       if(t[i] + t[j] + t[k] === psum){
+//         console.log(`${t[i]}, ${t[j]}, ${t[k]}`)
+//       }
+//     }
+//   } 
+// }
+
+
+// const t =  'asdfg';
+// let ans = 0 ;
+// let i = -1;
+// let j = -1;
+// let k = 0;
+// const hash = {};
+
+// while(true){
+//   let f1 = false;
+//   let f2 = false;
+
+//   while(i < t.length-1){
+//     f1 = true
+//     i++;
+//     hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : 1
+//     if(hash[t[i]] == 2 ){
+//       break;
+//     }else{
+//       const diff = i - j;
+//       if(diff > ans){
+//         ans = diff
+//       }
+//     }
+//   };
+
+//   while(j < i){
+//     f2 = true
+//     j++;
+//     hash[t[j]] -= 1;
+//     if(hash[t[j]] == 1){
+//       break
+//     }
+//   }
+//   if(!f1 && !f2){
+//     console.log(ans);
+//     break
+//   }
+// }
+
+
+// const b = 'skks'
+// const hash = {}
+// b.split('').forEach((elem) => {
+//   if(hash[elem]){
+//     hash[elem] +=1
+//   }else{
+//     hash[elem] = 1
+//   }
+// });
+// console.log(hash);
+
+// const data = [1,2,3,4,1]
+// const hash1 = {}
+// const dups  = []
+
+// data.forEach((elem) => {
+//   if(hash1[elem]){
+//     hash1[elem] += 1
+//     dups.push(elem)
+//   }else{
+//     hash1[elem] = 1
+//   }
+// });
+
+// console.log(dups)
+
+
+// const btree = '0100110101';
+
+// let x = 0;
+// let y = 0;
+// const len = btree.length;
+// let c = 0;
+
+// const arr = btree.split('');
+
+// for(let i = 0; i< len; i++) {
+//   if(arr[i] === '0'){
+//     x++
+//   }else{
+//     y++
+//   }
+//   if(x == y){
+//     c++
+//   }
+// }
+// if(x != y) console.log('novalues')
+// if(c){ console.log('asdasd',c)}
+
+
+// var bst = function(){
+//   this.root = null;
+
+//   const Node = function(data){
+//     this.data = data;
+//     this.left = null
+//     this.right = null
+//   }
+
+//   this.add = function(input){
+//     if(this.root === null) {
+//       this.root = new Node(input);
+//       return 
+//     }else{
+//       var searchTree = function(root) {
+//         if(input < root.data){
+//           if(root.left === null){
+//             root.left = new Node(input);
+//           }else{
+//             return searchTree(root.left)
+//           }
+//         }else if(input >= root.data){
+//           if(root.right === null){
+//             root.right = new Node(input);
+//           }else{
+//             return searchTree(root.right)
+//           }
+//         };
+//       };
+
+//       return searchTree(this.root);
+//     }
+//   };
+
+// }
+
+// const bt = new bst();
+// bt.add(100);
+// bt.add(90);
+// bt.add(150);
+// console.log(bt);
+
+
+
+
+// const BST = function(){
+//   this.root = null;
+
+//   const Node = function(data){
+//     this.data = data;
+//     this.left = null
+//     this.right = null
+//   };
+
+//   this.add = function(value){
+//     if(this.root == null){
+//       this.root = new Node(value);
+//     }else{
+//       const searchTree = function(root){
+//         if(value < root.data){
+//             if(root.left == null){
+//                 root.left = new Node(value)
+//                 return 
+//             }else if(root.left != null){
+//                 return searchTree(root.left)
+//             }
+//         }else if(value>root.data){
+//             if(root.right == null){
+//                 root.right = new Node(value)
+//                 return 
+//             }else if(root.right != null){
+//                 return searchTree(root.right)
+//             }
+//         } else {
+//             return null
+//         }
+//     }
+//       return searchTree(this.root)
+//     }
+//   }
+
+//   this.findMin = function(data){
+//     let current = this.root;
+
+//     while(current.left != null){
+//       current =  current.left
+//     }
+//     return current.data
+//   }
+
+//   this.findMax = function(data){
+//     let current = this.root;
+
+//     while(current.right != null){
+//       current =  current.right
+//     }
+//     return current.data
+//   }
+
+//   this.printLeft = function(node){
+//     if(node === null) return
+//     if(node && (node.left || node.right)){
+//       node && node.left && this.printLeft(node.left);
+//       // if(node && node.left && node.left.data){
+//       //   console.log(node && node.left && node.left.data);
+//       // }
+//       if(node && node.right && node.right.data){
+//         console.log(node && node.right && node.right.data);
+//       }
+//       node && node.right && this.printLeft(node.right);
+//     }
+//   };
+
+// }
+
+// const b = new BST();
+
+// b.add(100);
+// b.add(250);
+// b.add(50);
+// b.add(75);
+// b.add(300);
+// b.add(45);
+// b.add(280);
+
+// // console.log(JSON.stringify(b));
+// // console.log('min', b.findMin());
+// // console.log('max', b.findMax());
+// b.printLeft(b.root);
+
+
+
+
+// function merge(left, right) {
+//   const left = [];
+//   const right = []
+//   while(left.length && right.length){
+//     if(left[0] < right[0]){
+//       arr.push(left.unshift())
+//     }else{
+//       arr.push(right.unshift())
+//     }
+//   };
+//   return [...arr, ...left, ...right];
+// }
+
+// function mergeSort1(arr){
+//   const opp = arr.length/2 
+//   const left = arr.slice(0,opp);
+//   return merge(mergeSort1(left), mergeSort1(arr));
+// };
+
+// mergeSort1([10,1,100,21,190,56,23,89])
+
+
+
+// function quickSort1(arr){
+//   const pivot= arr[arr.length-1];
+//   const left = [];
+//   const right = [];
+
+//   for(let i = 0 ; i< arr.length-1; i++){
+//     if(arr[i] < pivot){
+//       left.push(arr[i])
+//     }else if(arr[i] > pivot){
+//       right.push(arr[i])
+//     }
+//   };
+
+//   return [
+//     ...quickSort1(left),
+//     pivot,
+//     ...quickSort1(right)
+//   ]
+// };
+
+
+
+// const f1 = (callback) => {
+//   return callback()
+// };
+
+
+// console.log(f1(() => { console.log('i am callback')}));
+
+
+// function func(...args){
+//   for(let value of arguments){
+//       console.log(value);
+//   }
+// }
+
+// // driver code
+// func(1, "Hello", true);
+
+
+// const randMOn = (function(){
+//   return "i am amdjs"
+// })()
+// console.log(randMOn);
+
+
+// const calculator = (x,y) => {
+//   const add = () => x+y;
+//   const subtract = () => x-y;
+//   const multiply = () => x*y;
+//   const divide = () => x/y;
+  
+//   return {
+//     add,
+//     subtract,
+//     multiply,
+//     divide
+//   }
+// };
+
+// const c = calculator(3,4);
+// console.log(c.add());
+// console.log(c.subtract());
+
+
+
+// const debounce = (fn, time) => {
+//   let isSet;
+//   return (...args) => {
+    
+//     if(isSet) clearTimeout(isSet); 
+    
+//     isSet = setTimeout(() => {
+//       fn(...args);
+//     }, time)
+//   }
+// };
+
+// const throttle = (fn, time) => {
+//   let isSet;
+//   return (...args) => {
+    
+//     if(isSet) return 
+    
+//     isSet = setTimeout(() => {
+//       fn(...args);
+//       clearTimeout(isSet);
+//     }, time)
+//   }
+// };
+
+
+// const singleTon  = (function(){
+//   let instance;
+//   const createINstance = () => {
+//     return new Object('asasdas')
+//   };
+
+//   return {
+//     getInstance: function() {
+//       if(instance){
+//         return instance
+//       }
+//       instance = createINstance()
+//     }
+//   }
+// })()
+
+
+// const p = [1,2,3,4,5,6,7,8,9,10]
+// const batches = {1:[], 2:[]};
+
+// for(let i =0; i < p.length; i++){
+//   if(i<=5){
+//     batches[1].push(new Promise((resolve,reject) => setTimeout(() => resolve(i), 1000)))
+//   }else{
+//     batches[2].push(new Promise((resolve,reject) => setTimeout(() => resolve(i), 2000)))
+//   }
+// }
+
+// console.log(batches);
+
+
+// setTimeout(() => {
+//   Promise.all(batches[1]).then((data) => {
+//     console.log(data)
+//   })
+//   Promise.all(batches[2]).then((data) => {
+//     console.log(data)
+//   })
+// },3000)
+
+
+// setTimeout(() => {
+//   console.log(1)
+// }, 0)
+
+// function fn(dn1){
+//   // setTimeout(() => {
+    
+//   // }, 4000)
+//   Promise.resolve(dn1())
+// };
+
+// fn(() => { console.log('called')})
+
+// for(let i = 0 ; i< 10 ; i++) {
+//   setTimeout(() =>{
+//     console.log(i)
+//   },1000)
+// };
+
+// for(let i = 10 ; i> 0 ; i--) {
+//   (function(i){
+//     setTimeout(function(){
+//       console.log(i)
+//     },1000)
+//   })(i)
+// };
+
+
+
+// runPromise(100).then((dat) => {
+//   console.log(dat);
+// })
+
+
+
+
+const nums = [1,2,3,4]
+const op = [];
+let init = 1;
+for(let i = 0; i < nums.length; i++) {
+  op[i] = init;
+  init *= nums[i]
+};
+
+let afterPr = 1;
+const final =[];
+for(let j = nums.length-1; j > -1; j--) {
+  final[j] = afterPr;
+  afterPr *= nums[j]; 
+};
+
+console.log(final)
+
+
+
+
+
+
+// const comb = function(elems){
+//   if(elems.length === 0) return [[]];
+//   const firstEl = elems[0]
+//   const res = elems.slice(1);
+//   const wofirst = comb(res);
+//   const withFirst = [];
+//   wofirst.forEach(element => {
+//     const tempWithFirst = [...element, firstEl];
+//     withFirst.push(tempWithFirst);
+//   });
+
+//   return [
+//     ...withFirst, ...wofirst
+//   ]
+// }
+// console.log(comb([1,2,3]))
+
+
+
+
+const combs = function(data){
+  if(data.length === 0) return [[]];
+  const firstElement = data[0];
+  const restElements = data.slice(1);
+
+  const withoutFirst = combs(restElements);
+  const allCombs = [];
+
+  withoutFirst.forEach((elem)=> {
+    const withFirstElem = [...elem, firstElement];
+    allCombs.push(withFirstElem);
   });
-  init;
-}
+
+  return [
+    ...withoutFirst, ...allCombs
+  ]
+};
+
+// console.log(combs([1,2,4]))
 
 
-Array.prototype.myMap = function(fn, init = []) {
-  const values = this.valueOf();
-  values.forEach(element => {
-    init.push(fn(element));
+
+const perms = function(data){
+  if(data.length === 0) return [[]];
+  const firstElement = data[0];
+  const restElements = data.slice(1);
+
+  const withoutFirst = perms(restElements);
+  const allPerms = [];
+
+  withoutFirst.forEach((elem)=> {
+    for(let i = 0 ; i <= elem.length; i++){
+      const withFirstElem = [...elem.slice(0, i), firstElement, ...elem.slice(i)];
+      allPerms.push(withFirstElem);
+    }
   });
-  init;
-}
 
-function fact(n){
-  if( n <= 2 ){
-    return 1
-  }else{
-    return fact(n-2) + fact(n-1);
-  }
-}
-console.log(fact(7));
+  return allPerms
+};
 
-const t = "aaa"
-let ans = 0;
-
-let i = -1;
-let j = -1;
-const hash = {}
-
-while(true){
-  let f1 = false;
-  let f2 = false;
-
-  while(i < t.length-1){
-    f1 = true
-    i++;
-    hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : 1
-    if(hash[t[i]] === 2 ){
-      break;
-    }else{
-      const len = i-j;
-      if(len > ans){
-        ans = len
-      }
-    }
-  }
-
-  while(j < i){
-    f2 = true
-    j++;
-    hash[t[j]] = hash[t[j]] - 1;
-    if(hash[t[j]] == 1) {
-      break;
-    }
-  }
-
-  if(!f1 && !f2){
-    break;
-  }
-}
-
-console.log(ans);
+console.log(perms([1,2,4]))

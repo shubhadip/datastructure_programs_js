@@ -9,7 +9,7 @@ class SinglyLinkList {
         const newNode = {value} // this has to be object so that we can add next refernce to new Node
         newNode.next = this.head // point new node to position where head is pointing, this make link for newNode with existing Node bcoz head will be pointing to currently added node
         this.head = newNode // point head to newNode instead of where it was pointing
-        this.length ++ 
+        this.length++ 
         return this;
     }
 

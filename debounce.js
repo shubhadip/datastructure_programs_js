@@ -1,14 +1,15 @@
 
 var debounce = (func, time) => {
     let inDecounce
-    return function(){
-        let arg = arguments
+    return (...args) => {
         clearTimeout(inDecounce)
-        inDecounce = setTimeout(()=>func.call(this, arg),time)
+        inDecounce = setTimeout(()=>func(...args),time)
     }
 }
 
 debounce((data)=>{
-    console.log(data[0])
+    console.log(data)
 },3000)('test')
 
+debounce((x,y) => console.log(x + y), 4000)(3,4)
+debounce((x,y) => console.log(x + y), 5000)(23,34)

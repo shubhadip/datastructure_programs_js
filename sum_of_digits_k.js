@@ -1,6 +1,7 @@
 let numbers = [1,8,4,5,6];
 let k = 14;
 
+// n*n
 numbers.forEach((element,index) => {
     let temp = k - element
     let indexofpair = numbers.indexOf(temp)
