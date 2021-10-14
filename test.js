@@ -901,44 +901,195 @@ console.log(final)
 
 
 
-const combs = function(data){
-  if(data.length === 0) return [[]];
-  const firstElement = data[0];
-  const restElements = data.slice(1);
+// const combs = function(data){
+//   if(data.length === 0) return [[]];
+//   const firstElement = data[0];
+//   const restElements = data.slice(1);
 
-  const withoutFirst = combs(restElements);
-  const allCombs = [];
+//   const withoutFirst = combs(restElements);
+//   const allCombs = [];
 
-  withoutFirst.forEach((elem)=> {
-    const withFirstElem = [...elem, firstElement];
-    allCombs.push(withFirstElem);
-  });
+//   withoutFirst.forEach((elem)=> {
+//     const withFirstElem = [...elem, firstElement];
+//     allCombs.push(withFirstElem);
+//   });
 
-  return [
-    ...withoutFirst, ...allCombs
-  ]
-};
+//   return [
+//     ...withoutFirst, ...allCombs
+//   ]
+// };
 
 // console.log(combs([1,2,4]))
 
 
 
-const perms = function(data){
-  if(data.length === 0) return [[]];
-  const firstElement = data[0];
-  const restElements = data.slice(1);
+// const perms = function(data){
+//   if(data.length === 0) return [[]];
+//   const firstElement = data[0];
+//   const restElements = data.slice(1);
 
-  const withoutFirst = perms(restElements);
-  const allPerms = [];
+//   const withoutFirst = perms(restElements);
+//   const allPerms = [];
 
-  withoutFirst.forEach((elem)=> {
-    for(let i = 0 ; i <= elem.length; i++){
-      const withFirstElem = [...elem.slice(0, i), firstElement, ...elem.slice(i)];
-      allPerms.push(withFirstElem);
+//   withoutFirst.forEach((elem)=> {
+//     for(let i = 0 ; i <= elem.length; i++){
+//       const withFirstElem = [...elem.slice(0, i), firstElement, ...elem.slice(i)];
+//       allPerms.push(withFirstElem);
+//     }
+//   });
+
+//   return allPerms
+// };
+
+// console.log(perms([1,2,4]));
+
+
+class Node {
+  constructor(data){
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
+// const g = new Node('g');
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.left = f;
+// c.right = g;
+
+
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
+
+a.left = b;
+a.right = c;
+c.right = f;
+b.right = e;
+b.left = d;
+
+let arr = [a];
+
+console.log('************** bfs *************');
+
+while(arr.length != 0) {
+  const removedElement = arr.shift();
+  console.log('removed', removedElement.data);
+  if(removedElement.left != null) {
+    arr.push(removedElement.left) 
+  }
+  if(removedElement.right != null) {
+    arr.push(removedElement.right) 
+  }
+}
+
+console.log('************** dfs *************');
+
+arr = [a];
+while(arr.length != 0) {
+  const removedElement = arr.pop();
+  console.log('removed', removedElement.data);
+  if(removedElement.right != null) {
+    arr.push(removedElement.right) 
+  }
+  if(removedElement.left != null) {
+    arr.push(removedElement.left) 
+  }
+}
+
+
+
+const p = '{{}}';
+
+const stack = [];
+let unbalanced = false;
+for(let i =0; i< p.length ; i++) {
+  if(p[i] == '{') {
+    stack.push('{')
+  }else if(p[i] == '}') {
+    if(stack.length) {
+      stack.pop('{')
+    }else{
+      unbalanced = true;
+      return 0
     }
-  });
-
-  return allPerms
+  }
 };
 
-console.log(perms([1,2,4]))
+
+
+
+
+// class SnakeGame {
+//   constructor(){
+//     this.snakeBody = [
+//       [4,1],
+//       [4,3],
+//       [4,2],
+//       [4,4],
+//     ]
+//   };
+
+//   draw(){
+//     const grid = Array(10).fill().map(() => Array(10).fill(' '));
+//     this.snakeBody.forEach((item) => {
+//       const [row, col] = item;
+//       grid[row][col] = '*'
+//     });
+//     // console.log('grid', grid);
+
+//     grid.forEach((row) => console.log(row.join(' | ')))
+//   };
+
+//   move(direction){
+//     const delta = {
+//       up:[ -1, 0],
+//       down:[ 1, 0],
+//       right:[ 0, -1],
+//       uleft:[ 0, 1]
+//     };
+//     const [drow, dcol] = delta[direction];
+//     const [currentRow, currentCol] = this.snakeBody[this.snakeBody.length-1]
+//     const [newrow, newcol] = [drow + currentRow , dcol + currentCol];
+//     this.snakeBody.push([newrow, newcol]);
+//     this.snakeBody.shift();
+//   }
+// };
+
+// const g = new SnakeGame();
+// console.log('adsd', g.draw());
+
+
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 2000, 'promise1');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 1000, 'promise2');
+});
+
+const promises = [promise1, promise2];
+
+function race(promises) {
+  new Promise((resolve, reject) => {
+    promises.forEach(element => {
+      Promise.resolve(element)
+        .then(resolve)
+        .catch(reject);
+    });
+  })
+};
