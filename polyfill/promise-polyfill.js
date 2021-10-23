@@ -52,7 +52,6 @@ race(promises).then((data) => console.log('race', data))
 
 
 // import { promiseAll } from 'promiseAll'; // implementation of promise.all from above
-
 // function promiseAllSettled(promisesArray) {
 //   var wrappedPromises = promisesArray.map(
 //     p => Promise.resolve(p)
@@ -61,3 +60,20 @@ race(promises).then((data) => console.log('race', data))
 //   );
 //   return promiseAll(wrappedPromises); // i:e; Promise.all(wrappedPromises);
 // }
+
+
+function promisify(f) {
+  return function(...args){
+    return new Promise((resolve, reject) => {
+      function callback(err, result){
+        if(err){
+          reject(err)
+        }else{
+          resolve(result)
+        }
+      };
+      args.push(callback);
+      f.call(this, ...args)
+    })
+  }
+}
