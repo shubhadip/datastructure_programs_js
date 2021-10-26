@@ -15,3 +15,4 @@ function makeAdder(...x) {
 };
 
 console.log('makeAdder', makeAdder(1,4)(2,2)(3)());
+console.log('makeAdder', makeAdder(1)(2)(2)());

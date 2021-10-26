@@ -19,12 +19,12 @@ const bestSum = (targetSum, numbers, memo ={}) => {
   memo[targetSum] = shortcomb;
   return shortcomb
 };
-console.log(bestSum(15, [3,4,7,5,8]));
-console.log(bestSum(7, [2,3]));
-console.log(bestSum(7, [5,3,4,7]));
-console.log(bestSum(7, [2,4]));
-console.log(bestSum(8, [1,4,5]));
-console.log(bestSum(300, [7,14]));
+// console.log(bestSum(15, [3,4,7,5,8]));
+console.log(bestSum(7, [2,3,4]));
+// console.log(bestSum(7, [5,3,4,7]));
+// console.log(bestSum(7, [2,4]));
+// console.log(bestSum(8, [1,4,5]));
+// console.log(bestSum(300, [7,14]));
 
 
 // bruteforce

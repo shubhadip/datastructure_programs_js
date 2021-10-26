@@ -23,8 +23,9 @@ console.log(howSum(7, [2,4]));
 console.log(howSum(8, [2,3,5]));
 console.log(howSum(300, [50,25]));
 
-//m = targetSum
-//n = array length
+// m = targetSum
+// n = array length
+
 // bruteforce
 // 0(n^m * m)
 // space 0(m)
