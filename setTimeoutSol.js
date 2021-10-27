@@ -1,5 +1,4 @@
 const temp = [1,2,4,3];
-
 for(var i =0; i < temp.length; i++) {
   (function(i){
     setTimeout(() => {
@@ -8,11 +7,10 @@ for(var i =0; i < temp.length; i++) {
   })(i);
 };
 
+const temp = [1,2,4,3];
+for(var i =0; i < temp.length; i++) {
+  setTimeout(() => {
+    console.log(temp[i]);
+  }, 1000);
+};
 
-// const temp = [1,2,4,3];
-
-// for(var i =0; i < temp.length; i++) {
-//   setTimeout(() => {
-//     console.log(temp[i]);
-//   }, 1000);
-// };

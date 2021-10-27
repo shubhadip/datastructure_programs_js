@@ -1093,3 +1093,46 @@ function race(promises) {
     });
   })
 };
+
+
+
+const graph = {
+  '0': ['1','2','3'],
+  '2': ['4'],
+  '1': [],
+  '4': [],
+  '3':[]
+};
+
+console.log('********** bfs *********')
+const bfs = (graph) => {
+  const queue = ['0'];
+
+  while(queue.length > 0){
+    const curr = queue.shift();
+    console.log('p', curr);
+    for (const neighbour of graph[curr]) {
+      queue.push(neighbour)
+    }
+  };
+
+};
+
+bfs(graph)
+
+
+console.log('********** dfs *********')
+const dfs = (graph) => {
+  const stack = ['0'];
+
+  while(stack.length > 0){
+    const curr = stack.pop();
+    console.log('p', curr);
+    for (const neighbour of graph[curr]) {
+      stack.push(neighbour)
+    }
+  };
+
+};
+
+dfs(graph)

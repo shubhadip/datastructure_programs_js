@@ -300,23 +300,23 @@ function factorial(n, list) {
     }
     const op = list.shift()
     if(op === '*'){
-      console.log(`${n} * ${n-1}`)
-      return n * factorial(n-1, list)
+      // console.log(`${n} * ${n-1}`)
+      return `${n} * ${factorial(n-1, list)}`
     }else if( op === '/'){
-      console.log(`${n} / ${n-1}`)
-      return Math.floor(n / factorial(n-1, list))
+      // console.log(`${n} / ${n-1}`)
+      return `${n} / ${factorial(n-1, list)}`
     }else if(op === '+') {
-      console.log(`${n} + ${n-1}`)
-      return n + factorial(n-1, list)
+      // console.log(`${n} + ${n-1}`)
+      return `${n} + ${factorial(n-1, list)}`
     }else {
-      console.log(`${n} - ${n-1}`)
-      return n - factorial(n-1, list)
+      // console.log(`${n} - ${n-1}`)
+      return `${n} - ${factorial(n-1, list)}`
     }
     
   }
 }
 
-// console.log(factorial(4, ['*','/','+','-']));
+console.log(((factorial(10, ['*','/','+','-']))));
 
 
 // function interativeFactorial(){
@@ -350,7 +350,7 @@ function factorial(n, list) {
 // }
 // console.log(interativeFactorial(4));
 
-//  - 6 * 5 / 4 + 3 - 2 * 1
+//  10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1
 
 
 // var clumsy = function(N) {
@@ -491,7 +491,7 @@ function mul(a,b) {
 };
 
 const temp = mul.bind(null, 4);
-console.log(temp(2));
+// console.log(temp(2));
 
 
 function loadScript(src, callback) {
