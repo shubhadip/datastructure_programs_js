@@ -15,6 +15,6 @@ const curry = f => {
     }
     return next()
 }
-const fn = curry((x,y)=> x+y)
+const fn = curry((x,y)=> x*y)
 
 console.log(fn(1)(2)(3,5)(4)())

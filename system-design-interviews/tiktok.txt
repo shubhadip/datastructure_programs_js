@@ -1,0 +1,16 @@
+insta reels & tiktok
+
+functional requirements :
+1. upload videos.
+2. storage videos.
+3. feed/timeline dist.
+4. fault tolerance.
+5. high avail.
+6. performance.
+7. low upload latency - avail. to user
+8. low upload latency - streaming ( distributed )
+
+capacity estimation:
+1. 10 millions viewers
+2. creator/consumers ratio ( 100k )
+3. write/read (1:100)

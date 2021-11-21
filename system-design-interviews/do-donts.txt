@@ -1,0 +1,12 @@
+
+do's
+1. Clarity of Thought
+2. Know about existing solutions
+3. Flexibility
+
+dont's
+1. Don't get into details prematurely
+2. Avoid fitting requirements to a set architecture in mind
+3. Keep it simple, stupid! Remember to look at the big picture and avoid too many hacks when solving.
+4. Have justifications for the points you make. Don't use buzz words or half hearted thoughts in your design.
+5. Be aware of the current solutions and tech practices. A lot of solutions can be purchased off the shelf which simplify implementation. You should be able to argue for a custom implementation with it's pros and cons.

@@ -1,0 +1,12 @@
+1. Group Messaging
+2. Sent/Delivered/Read
+3. Online/Last Seen
+4. Image Sharing
+5. chats (temporary/permanent)
+6. 1-1 chat
+
+
+***
+consistent hashing
+messaging queues
+load balancing
