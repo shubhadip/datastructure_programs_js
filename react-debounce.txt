@@ -1,0 +1,84 @@
+// utility debounce function
+export const debounce = (fn, timer) => {
+    let timeId;
+    return (...args) => {
+      clearTimeout(timeId);
+      timeId = setTimeout(() => {
+        fn.apply(this, args);
+      }, timer);
+    };
+  };
+  
+
+// search text input 
+import { useCallback } from "react";
+import { useState } from "react"
+
+export const SearchInput = (props) => {
+    const [value, setValue] = useState('');
+
+    const handleChange = (value) => {
+        setValue(value);
+        if(props.handleChange) {
+            props.handleChange(value)
+        }
+    }
+
+    return (
+        <span>
+            <input 
+                type={'text'} 
+                name={'search-input'}
+                onChange={(e) => handleChange(e.target.value)}
+                value={value}
+            />
+        </span>
+    )
+};
+
+//  app.js
+
+import './App.css';
+import { SingleRow } from './components/singlerow';
+import { SearchInput } from './components/searchInput';
+import { useCallback, useEffect, useState } from 'react';
+import {debounce} from './utils'
+let delay = 2000
+
+function App() {
+  const [searchValue, setSearchValue] = useState('');
+  let data = [];
+  
+  const debounced = useCallback(
+    debounce((query) => {
+      console.log('callapi', query)
+    }, delay), [debounce]);
+
+  useEffect(() => {
+    if(searchValue) {
+      debounced(searchValue);
+    }else {
+      console.log('no search value');
+    }
+  }, [searchValue, debounced])
+  
+  const handleChange = (value) => {
+    setSearchValue(value);
+  };
+
+  return (
+    <div className="App">
+     <SearchInput handleChange={handleChange} />
+     {
+      data.map((i)=> {
+        const value = i.value;
+        return <div>
+          <SingleRow value={value}/>
+        </div>
+      })
+     }
+    </div>
+  );
+}
+
+export default App;
