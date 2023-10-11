@@ -125,17 +125,34 @@ Object.keys(hashMap).forEach((data) => {
 // 2. with certain timeout
 // 3. clear timeout
 
+
+const repeat = (function(){
+  let setId;
+  return  {
+    start: function(fn, time){
+      setId = setTimeout(() => {
+        fn.call(this);
+        repeat.start(fn, time);
+      }, time);
+      console.log(setId);
+    },
+    clear: function(){
+      clearTimeout(setId)
+    }
+  }
+})();
+
 let setId;
-const repeat = (fn, time) => {
-  setId = setTimeout(() => {
-    fn.call(this);
-    repeat(fn, time);
-  }, time);
-  console.log(setId);
-};
+// const repeat = (fn, time) => {
+//   setId = setTimeout(() => {
+//     fn.call(this);
+//     repeat(fn, time);
+//   }, time);
+//   console.log(setId);
+// };
 
 function customSetInterval(fn, time) {
-  repeat(fn, time);
+  repeat.start(fn, time);
 }
 
 customSetInterval(() => {

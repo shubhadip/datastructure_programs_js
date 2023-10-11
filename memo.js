@@ -65,3 +65,15 @@ console.log(fib(6))
 console.log(fib(7))
 console.log(fib(8))
 console.log(fib(50))
+
+
+
+function memoise(fn) {
+  let cache = {};
+  return function() {
+    if(cache[cachkey]) return cache[cachkey];
+    const response = fn.call(this, arguments);
+    cache[cachkey] = response;
+    return cache[cachkey];
+  }
+}

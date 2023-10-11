@@ -4,7 +4,7 @@
 //     clearTimeout(timer);
 //     timer = setTimeout(() => {
 //       return fn.apply(this,arguments);
-//     },time) 
+//     },time)
 //   }
 // };
 
@@ -12,9 +12,8 @@
 //   console.log('data');
 // },3000)());
 
-
 // const throttle = (fn, time) => {
-//   let timer; 
+//   let timer;
 //   return function(){
 //     if(!timer){
 //       timer = setTimeout(() => {
@@ -25,9 +24,7 @@
 //   }
 // }
 
-
-
-// const stack = function(){ 
+// const stack = function(){
 //   this.count = 0;
 //   this.object = {}
 
@@ -46,7 +43,6 @@
 //     return this.object[this.count-1];
 //   }
 
-
 //   this.length = function(){
 //       return this.count
 //   }
@@ -57,8 +53,6 @@
 // s.push('1')
 // s.push('3')
 // console.log(s.length());
-
-
 
 // var ll = function(){
 //   var length =0;
@@ -127,7 +121,6 @@
 // console.log('ElementAt 1 :',LinkList.elementAt(1))
 // console.log('ElementAt 2 :',LinkList.elementAt(2))
 
-
 // function innerFunction(){
 //   return new Promise((resolve, reject) => {
 //     return setTimeout(()=>{
@@ -149,8 +142,6 @@
 // repeat(5).then((data) => {
 //   console.log(data)
 // })
-
-
 
 // function innerFunction(data) {
 //   const temp = new Promise((resolve,reject) => {
@@ -175,7 +166,6 @@
 // repeat(8).then((d) => {
 //   console.log(d);
 // })
-
 
 // const memo = (func)=>{
 //   let cacheKey = {};
@@ -204,9 +194,9 @@
 
 // console.log(fibbo(4))
 
-// const steps =4 
+// const steps =4
 // for (var i = 0; i++ < steps; ) {
-        
+
 //   var line = '';
 //   var spaces = steps - i;
 
@@ -217,7 +207,7 @@
 //       line += '_';
 //     }
 //   }
-  
+
 //   console.log(line);
 // }
 // console.log(temp)
@@ -237,7 +227,6 @@
 // })
 // console.log(max, min);
 
-
 // const candles = [4,4,1,3];
 
 // const max = Math.max(...candles);
@@ -251,7 +240,6 @@
 //   }
 // })
 // console.log(data);
-
 
 // const grades = [73,67,38,33];
 // const response = [];
@@ -309,9 +297,6 @@
 // })
 // return [maxCount, minCount]
 
-
-
-
 // Array.prototype.myReduce = function(fn, intialValue){
 //   const dataArray = this;
 //   dataArray.forEach((item) => {
@@ -333,7 +318,6 @@
 
 // console.log('map',[1,2,3].myMap((a) => a*2))
 
-
 // const debounce =  (fn, time) => {
 //   let isTimeout;
 //   return function(){
@@ -347,10 +331,9 @@
 // debounce(()=>console.log('asd'), 1000)('asd')
 // debounce((d)=> () => console.log(d), 2000)('asd1')
 
-
 // var t = [1, 3, 2, 6, 1, 2]
 // k = 3;
-// let count =0 
+// let count =0
 // t.forEach(element => {
 //   const offset = Math.abs(k-element);
 //   if(t.indexOf(offset) > -1){
@@ -360,8 +343,6 @@
 
 // console.log(count);
 
-
-
 // Array.prototype.myReduce = function(fn, init) {
 //   const values = this.valueOf();
 //   values.forEach(element => {
@@ -369,7 +350,6 @@
 //   });
 //   init;
 // }
-
 
 // Array.prototype.myMap = function(fn, init = []) {
 //   const values = this.valueOf();
@@ -429,7 +409,6 @@
 
 // console.log(ans);
 
-
 // const t= [1,2,4,5,6,8]
 // let psum = 15;
 
@@ -440,9 +419,8 @@
 //         console.log(`${t[i]}, ${t[j]}, ${t[k]}`)
 //       }
 //     }
-//   } 
+//   }
 // }
-
 
 // const t =  'asdfg';
 // let ans = 0 ;
@@ -483,7 +461,6 @@
 //   }
 // }
 
-
 // const b = 'skks'
 // const hash = {}
 // b.split('').forEach((elem) => {
@@ -510,7 +487,6 @@
 
 // console.log(dups)
 
-
 // const btree = '0100110101';
 
 // let x = 0;
@@ -533,7 +509,6 @@
 // if(x != y) console.log('novalues')
 // if(c){ console.log('asdasd',c)}
 
-
 // var bst = function(){
 //   this.root = null;
 
@@ -546,7 +521,7 @@
 //   this.add = function(input){
 //     if(this.root === null) {
 //       this.root = new Node(input);
-//       return 
+//       return
 //     }else{
 //       var searchTree = function(root) {
 //         if(input < root.data){
@@ -576,9 +551,6 @@
 // bt.add(150);
 // console.log(bt);
 
-
-
-
 // const BST = function(){
 //   this.root = null;
 
@@ -596,14 +568,14 @@
 //         if(value < root.data){
 //             if(root.left == null){
 //                 root.left = new Node(value)
-//                 return 
+//                 return
 //             }else if(root.left != null){
 //                 return searchTree(root.left)
 //             }
 //         }else if(value>root.data){
 //             if(root.right == null){
 //                 root.right = new Node(value)
-//                 return 
+//                 return
 //             }else if(root.right != null){
 //                 return searchTree(root.right)
 //             }
@@ -664,9 +636,6 @@
 // // console.log('max', b.findMax());
 // b.printLeft(b.root);
 
-
-
-
 // function merge(left, right) {
 //   const left = [];
 //   const right = []
@@ -681,14 +650,12 @@
 // }
 
 // function mergeSort1(arr){
-//   const opp = arr.length/2 
+//   const opp = arr.length/2
 //   const left = arr.slice(0,opp);
 //   return merge(mergeSort1(left), mergeSort1(arr));
 // };
 
 // mergeSort1([10,1,100,21,190,56,23,89])
-
-
 
 // function quickSort1(arr){
 //   const pivot= arr[arr.length-1];
@@ -710,15 +677,11 @@
 //   ]
 // };
 
-
-
 // const f1 = (callback) => {
 //   return callback()
 // };
 
-
 // console.log(f1(() => { console.log('i am callback')}));
-
 
 // function func(...args){
 //   for(let value of arguments){
@@ -729,19 +692,17 @@
 // // driver code
 // func(1, "Hello", true);
 
-
 // const randMOn = (function(){
 //   return "i am amdjs"
 // })()
 // console.log(randMOn);
-
 
 // const calculator = (x,y) => {
 //   const add = () => x+y;
 //   const subtract = () => x-y;
 //   const multiply = () => x*y;
 //   const divide = () => x/y;
-  
+
 //   return {
 //     add,
 //     subtract,
@@ -754,14 +715,12 @@
 // console.log(c.add());
 // console.log(c.subtract());
 
-
-
 // const debounce = (fn, time) => {
 //   let isSet;
 //   return (...args) => {
-    
-//     if(isSet) clearTimeout(isSet); 
-    
+
+//     if(isSet) clearTimeout(isSet);
+
 //     isSet = setTimeout(() => {
 //       fn(...args);
 //     }, time)
@@ -771,16 +730,15 @@
 // const throttle = (fn, time) => {
 //   let isSet;
 //   return (...args) => {
-    
-//     if(isSet) return 
-    
+
+//     if(isSet) return
+
 //     isSet = setTimeout(() => {
 //       fn(...args);
 //       clearTimeout(isSet);
 //     }, time)
 //   }
 // };
-
 
 // const singleTon  = (function(){
 //   let instance;
@@ -798,7 +756,6 @@
 //   }
 // })()
 
-
 // const p = [1,2,3,4,5,6,7,8,9,10]
 // const batches = {1:[], 2:[]};
 
@@ -812,7 +769,6 @@
 
 // console.log(batches);
 
-
 // setTimeout(() => {
 //   Promise.all(batches[1]).then((data) => {
 //     console.log(data)
@@ -822,14 +778,13 @@
 //   })
 // },3000)
 
-
 // setTimeout(() => {
 //   console.log(1)
 // }, 0)
 
 // function fn(dn1){
 //   // setTimeout(() => {
-    
+
 //   // }, 4000)
 //   Promise.resolve(dn1())
 // };
@@ -850,36 +805,26 @@
 //   })(i)
 // };
 
-
-
 // runPromise(100).then((dat) => {
 //   console.log(dat);
 // })
 
-
-
-
-const nums = [1,2,3,4]
+const nums = [1, 2, 3, 4];
 const op = [];
 let init = 1;
-for(let i = 0; i < nums.length; i++) {
+for (let i = 0; i < nums.length; i++) {
   op[i] = init;
-  init *= nums[i]
-};
+  init *= nums[i];
+}
 
 let afterPr = 1;
-const final =[];
-for(let j = nums.length-1; j > -1; j--) {
+const final = [];
+for (let j = nums.length - 1; j > -1; j--) {
   final[j] = afterPr;
-  afterPr *= nums[j]; 
-};
+  afterPr *= nums[j];
+}
 
-console.log(final)
-
-
-
-
-
+console.log(final);
 
 // const comb = function(elems){
 //   if(elems.length === 0) return [[]];
@@ -897,9 +842,6 @@ console.log(final)
 //   ]
 // }
 // console.log(comb([1,2,3]))
-
-
-
 
 // const combs = function(data){
 //   if(data.length === 0) return [[]];
@@ -921,8 +863,6 @@ console.log(final)
 
 // console.log(combs([1,2,4]))
 
-
-
 // const perms = function(data){
 //   if(data.length === 0) return [[]];
 //   const firstElement = data[0];
@@ -943,9 +883,8 @@ console.log(final)
 
 // console.log(perms([1,2,4]));
 
-
 class Node {
-  constructor(data){
+  constructor(data) {
     this.data = data;
     this.left = null;
     this.right = null;
@@ -967,13 +906,12 @@ class Node {
 // c.left = f;
 // c.right = g;
 
-
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+const d = new Node("d");
+const e = new Node("e");
+const f = new Node("f");
 
 a.left = b;
 a.right = c;
@@ -983,55 +921,49 @@ b.left = d;
 
 let arr = [a];
 
-console.log('************** bfs *************');
+console.log("************** bfs *************");
 
-while(arr.length != 0) {
+while (arr.length != 0) {
   const removedElement = arr.shift();
-  console.log('removed', removedElement.data);
-  if(removedElement.left != null) {
-    arr.push(removedElement.left) 
+  console.log("removed", removedElement.data);
+  if (removedElement.left != null) {
+    arr.push(removedElement.left);
   }
-  if(removedElement.right != null) {
-    arr.push(removedElement.right) 
+  if (removedElement.right != null) {
+    arr.push(removedElement.right);
   }
 }
 
-console.log('************** dfs *************');
+console.log("************** dfs *************");
 
 arr = [a];
-while(arr.length != 0) {
+while (arr.length != 0) {
   const removedElement = arr.pop();
-  console.log('removed', removedElement.data);
-  if(removedElement.right != null) {
-    arr.push(removedElement.right) 
+  console.log("removed", removedElement.data);
+  if (removedElement.right != null) {
+    arr.push(removedElement.right);
   }
-  if(removedElement.left != null) {
-    arr.push(removedElement.left) 
+  if (removedElement.left != null) {
+    arr.push(removedElement.left);
   }
 }
 
-
-
-const p = '{{}}';
+const p = "{{}}";
 
 const stack = [];
 let unbalanced = false;
-for(let i =0; i< p.length ; i++) {
-  if(p[i] == '{') {
-    stack.push('{')
-  }else if(p[i] == '}') {
-    if(stack.length) {
-      stack.pop('{')
-    }else{
+for (let i = 0; i < p.length; i++) {
+  if (p[i] == "{") {
+    stack.push("{");
+  } else if (p[i] == "}") {
+    if (stack.length) {
+      stack.pop("{");
+    } else {
       unbalanced = true;
-      return 0
+      return 0;
     }
   }
-};
-
-
-
-
+}
 
 // class SnakeGame {
 //   constructor(){
@@ -1072,67 +1004,58 @@ for(let i =0; i< p.length ; i++) {
 // const g = new SnakeGame();
 // console.log('adsd', g.draw());
 
-
-
 const promise1 = new Promise((resolve, reject) => {
-  setTimeout(resolve, 2000, 'promise1');
+  setTimeout(resolve, 2000, "promise1");
 });
 
 const promise2 = new Promise((resolve, reject) => {
-  setTimeout(resolve, 1000, 'promise2');
+  setTimeout(resolve, 1000, "promise2");
 });
 
 const promises = [promise1, promise2];
 
 function race(promises) {
   new Promise((resolve, reject) => {
-    promises.forEach(element => {
-      Promise.resolve(element)
-        .then(resolve)
-        .catch(reject);
+    promises.forEach((element) => {
+      Promise.resolve(element).then(resolve).catch(reject);
     });
-  })
-};
-
-
+  });
+}
 
 const graph = {
-  '0': ['1','2','3'],
-  '2': ['4'],
-  '1': [],
-  '4': [],
-  '3':[]
+  0: ["1", "2", "3"],
+  2: ["4"],
+  1: [],
+  4: [],
+  3: [],
 };
 
-console.log('********** bfs *********')
+console.log("********** bfs *********");
 const bfs = (graph) => {
-  const queue = ['0'];
+  const queue = ["0"];
 
-  while(queue.length > 0){
+  while (queue.length > 0) {
     const curr = queue.shift();
-    console.log('p', curr);
+    console.log("p", curr);
     for (const neighbour of graph[curr]) {
-      queue.push(neighbour)
+      queue.push(neighbour);
     }
-  };
-
+  }
 };
 
-bfs(graph)
+bfs(graph);
 
-
-console.log('********** dfs *********')
+console.log("********** dfs *********");
 const dfs = (graph) => {
-  const stack = ['0'];
+  const stack = ["0"];
 
-  while(stack.length > 0){
+  while (stack.length > 0) {
     const curr = stack.pop();
-    console.log('p', curr);
+    console.log("p", curr);
     for (const neighbour of graph[curr]) {
-      stack.push(neighbour)
+      stack.push(neighbour);
     }
-  };
-
+  }
 };
 
-dfs(graph)
+dfs(graph);

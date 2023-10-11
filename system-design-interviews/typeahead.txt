@@ -1,0 +1,68 @@
+TypeAhead Component Design Plan:
+
+1. General Requirements
+2. Functional Requirements
+3. Component Architecture (high level mockup, dependency graph)
+4. Data Entities
+5. Api Design
+6. Store Design
+7. Optimisation
+8. Accessibility
+9. Capacity Estimation
+
+General Requirements
+1. search item results based on query in typehead
+2. search results should be customisable
+3. widget can work with any data format, static/async response
+
+Functional Requirements:
+1. Network efficient
+2. Cache results
+3. Configurable properties (cachesize, filterfunction, itemrepresentation, minQuery)
+4. Should work in various devices & accessible from keyboard
+5. performance optimized
+
+Component Architecture
+1. search input
+2. list items
+
+Props Design
+1. getResultsfunction : (query) => Promise<T[]>
+2. minquery:number = 3
+3. Max Results = 100
+4. renderItem: (data) => htmlElement
+5. updateItem: (el:any) => void 
+6. customClass: string
+7. cachesize = 5
+
+State Design
+1. resultsMap: Hash of data/query
+2. data: T[]
+3. cacheSize: 5
+4. minQuery: 
+5. template 
+6. onQuery
+7. pageSize
+8. currentPage
+
+
+Perfomance/Optimzation 
+
+Network --> debounce + caching(servercache + browsercache + widgetcache(clr on timeout))
+Rendering  -->  DOM (virtualisation) + CSS(css animation only, bem model, skeleton loading)
+Javascript
+
+
+Accessbility
+keyboard navigation
+1. (shortcut for easy access)
+2. Tabble items (tab keys movement)
+3. close shortcut
+4. search
+
+Visual Opt:
+1. rem,em opt in css
+2. screen reader friendly
+3. aria-live fields
+4. aria attributes
+4. host in npm 

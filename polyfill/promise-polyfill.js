@@ -48,7 +48,7 @@ function all(promises){
   });
 };
 
-race(promises).then((data) => console.log('race', data))
+// race(promises).then((data) => console.log('race', data))
 
 
 // import { promiseAll } from 'promiseAll'; // implementation of promise.all from above
@@ -76,4 +76,14 @@ function promisify(f) {
       f.call(this, ...args)
     })
   }
+}
+
+function promiseFirst(promises) {
+  return new Promise((resolve,reject) => {
+    promises.forEach((ele) => {
+      Promise.resolve(ele)
+        .then(resolve)
+
+    })
+  })
 }

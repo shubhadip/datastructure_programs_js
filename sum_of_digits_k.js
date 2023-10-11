@@ -1,4 +1,4 @@
-let numbers = [1,8,4,5,6];
+let numbers = [1,8,5,9,6];
 let k = 14;
 
 // n*n

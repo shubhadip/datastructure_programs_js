@@ -33,8 +33,8 @@ class Snake {
     const delta = {
       up: [-1, 0],
       down: [+1, 0],
-      right: [0, -1],
-      left: [0, 1],
+      right: [0, 1],
+      left: [0, -1],
     };
     const currentHead = this.snakeBody[this.snakeBody.length-1];
 
@@ -49,5 +49,7 @@ class Snake {
 }
 
 const g = new Snake();
-
+g.move('up')
+g.move('up')
+g.move('right')
 console.log(g.draw());
