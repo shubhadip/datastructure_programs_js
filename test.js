@@ -1059,3 +1059,57 @@ const dfs = (graph) => {
 };
 
 dfs(graph);
+
+
+
+
+
+function innerFunction(fn) {
+  const promise = new Promise((resolve,reject) => {
+    return setTimeout(() => {
+      resolve(fn)
+    }, 400)
+  })
+  return promise;
+}
+
+function repeat(val) {
+  if(val === 0) {
+    return Promise.resolve('completed')
+  }else {
+    return innerFunction(val).then((p) => {
+      console.log(p);
+      return repeat(n-1);
+    })
+  }
+}
+
+repeat(4).then((o) => {
+  console.log(o)
+})
+
+
+
+
+
+function memo(fn) {
+  let cache = {}
+  return function() {
+    const cacheKey = JSON.stringify(arguments);
+    if(cache[cacheKey]) return cache[cacheKey]
+
+    const val = fn.call(this, arguments)
+    cache[cacheKey] = val
+    return val;
+  }
+}
+
+
+const fibbo = memo(function(v){
+  if (v < 1) return 0;
+  if (v < 2) return 1;
+  return fibbo(n-2) + fibbo(n-1);
+})
+
+console.log(fibbo(11));
+

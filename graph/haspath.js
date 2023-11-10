@@ -11,10 +11,8 @@ const graph = {
 const dfsHasPath = (graph, src, dest) => {
   if(src === dest) return true;
   
-  const neigh = graph[src];
-  
-  for (const iterator of neigh) {
-    if(dfsHasPath(graph, iterator, dest)){
+  for (const neigh of graph[src]) {
+    if(dfsHasPath(graph, neigh, dest)){
       return true
     }
   }

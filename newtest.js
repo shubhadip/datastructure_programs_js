@@ -45,3 +45,20 @@ const myRace = () => {
 myRace().then((o) => {
   console.log(o);
 });
+
+
+
+
+
+function makeadder(...x) {
+  let total = x.reduce(acc,init => acc+=init, total)
+  function add(...y) {
+    if(y.length) {
+      total = y.reduce(acc,init => acc+=init, total)
+      return add;
+    }else {
+      return total
+    }
+  }
+  return add 
+}

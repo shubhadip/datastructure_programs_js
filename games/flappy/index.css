@@ -1,0 +1,18 @@
+
+
+.bird {
+    --bird-top: -1000px;
+    --bird-size: 60px;
+    background-color: yellow;
+    position: absolute;
+    height: var(--bird-size);
+    width: var(--bird-size);
+    left: var(--bird-size);
+    top: calc(var(--bird-top)* 1px);
+    border-radius: 50%;
+    display: none;
+}
+
+.bird.show {
+    display: block;
+}

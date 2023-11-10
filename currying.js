@@ -18,3 +18,18 @@ const curry = f => {
 const fn = curry((x,y)=> x*y)
 
 console.log(fn(1)(2)(3,5)(4)())
+
+
+
+
+// function curry(...x) {
+//     let total  = x.reduce((acc,init) => acc+ init, init);
+//     function add(...y) {
+//         if(y.length > 0) {
+//             total = y.reduce((acc,init) => acc + init, total);
+//             return add
+//         }
+//         return total
+//     }
+//     return add 
+// }

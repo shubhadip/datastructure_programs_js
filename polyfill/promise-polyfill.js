@@ -14,10 +14,13 @@ const promises = [promise1, promise2];
 
 function race(promises){
   return new Promise((resolve,reject) => {
-    promises.forEach(element => {
-      Promise.resolve(element)
-        .then(resolve)
-        .catch(reject)
+    promises.forEach(p => {
+        p.then(r => {
+          resolve(r)
+        })
+        p.catch(r => {
+          reject(r)
+        })
     });
   });
 };
@@ -85,5 +88,77 @@ function promiseFirst(promises) {
         .then(resolve)
 
     })
+  })
+}
+
+const p1 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve({ resolve: "10" });
+  }, 10)
+);
+
+const p2 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve({ resolve: "100" });
+  }, 100)
+);
+
+const p3 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    reject({ reject: "3" });
+  }, 50)
+);
+// Promise.race([p1, p2, p3])
+//   .then((resp) => {
+//     console.log("resp", resp);
+//   })
+//   .catch((e) => {
+//     console.log("error", e);
+//   });
+
+const myRace = () => {
+  return new Promise((resolve, reject) => {
+    const allSettled = [];
+    [p2, p1, p3].forEach((p) => {
+      p.then((d) => {
+        allSettled.push(d);
+        if (allSettled.length === 3) {
+          resolve(allSettled);
+        }
+      }).catch((r) => {
+        allSettled.push(r);
+        if (allSettled.length === 3) {
+          resolve(allSettled);
+        }
+      });
+    });
+  });
+};
+
+myRace().then((o) => {
+  console.log(o);
+});
+
+
+
+
+function loadScript(src, callback) {
+  let script = document.createElement('script');
+  script.src = src;
+
+  script.onload = (sc) => callback(null, script);
+  script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+  document.head.append(script);
+}
+
+function ploadScript(src){
+  new Promise((resolve, reject) => {
+    const scriptTag = document.createElement('script');
+
+    scriptTag.src = 'https://www.google.com';
+    scriptTag.onload = () => resolve(scriptTag);
+    scriptTag.onerror = () => reject(new Error('adad'));
+    document.body.append(scriptTag)
   })
 }
